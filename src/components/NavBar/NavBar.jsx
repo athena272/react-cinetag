@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
-import styles from 'NavBar.module.scss'
+import styles from './NavBar.module.scss'
 
 NavBar.propTypes = {
     url: PropTypes.string,
