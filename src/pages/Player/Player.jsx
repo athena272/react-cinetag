@@ -17,7 +17,7 @@ export default function Player() {
             </Title>
             <section className={styles.container}>
                 <iframe
-                    width="560"
+                    width="800"
                     height="315"
                     src={video.link}
                     title={video.title}
