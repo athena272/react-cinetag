@@ -3,6 +3,7 @@ import Footer from "../components/Footer/Footer";
 import Container from "../components/Container/Container";
 import Home from "../pages/Home/Home"
 import Favorites from "../pages/Favorites/Favorites";
+import FavoritesProvider from "../contexts/Favorites";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function AppRoutes() {
@@ -10,10 +11,12 @@ export default function AppRoutes() {
         <BrowserRouter>
             <Header />
             <Container>
-                <Routes>
-                    <Route path="/" element={<Home />}></Route>
-                    <Route path="/favorites" element={<Favorites />}></Route>
-                </Routes>
+                <FavoritesProvider >
+                    <Routes>
+                        <Route path="/" element={<Home />}></Route>
+                        <Route path="/favorites" element={<Favorites />}></Route>
+                    </Routes>
+                </FavoritesProvider>
             </Container>
             <Footer />
         </BrowserRouter>
