@@ -3,6 +3,7 @@ import styles from './Card.module.scss'
 import favIcon from '/images/favorite.png'
 import notFavIcon from '/images/favorite_outline.png'
 import { useFavoriteContext } from "../../hooks"
+import { Link } from "react-router-dom"
 
 Card.propTypes = {
     id: PropTypes.number,
@@ -17,8 +18,10 @@ export default function Card({ id, title, cover }) {
 
     return (
         <div className={styles.container}>
-            <img src={cover} alt={title} className={styles.cover} />
-            <h2>{title}</h2>
+            <Link className={styles.link} to={`/${id}`}>
+                <img src={cover} alt={title} className={styles.cover} />
+                <h2>{title}</h2>
+            </Link>
             <img src={iconToUse}
                 alt="Favoritar filme"
                 className={styles.favorite}
