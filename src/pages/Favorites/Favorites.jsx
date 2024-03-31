@@ -6,6 +6,7 @@ import Card from '../../components/Card/Card'
 
 export default function Favorites() {
     const { favorite } = useFavoriteContext()
+    console.log("🚀 ~ Favorites ~ favorite:", favorite)
     return (
         <>
             <Banner image={"favoritos"} />
@@ -14,16 +15,19 @@ export default function Favorites() {
             </Title>
             <section className={styles.container}>
                 {
-                    favorite.map((fav, index) => {
-                        return (
-                            <Card
-                                key={index}
-                                id={fav.id}
-                                cover={fav.cover}
-                                title={fav.title}
-                            />
-                        )
-                    })
+                    favorite.length > 0 ?
+                        favorite.map((fav, index) => {
+                            return (
+                                <Card
+                                    key={index}
+                                    id={fav.id}
+                                    cover={fav.cover}
+                                    title={fav.title}
+                                />
+                            )
+                        })
+                        :
+                        <h2>Parece que ainda não há nenhum favorito ainda :(</h2>
                 }
             </section>
         </>
