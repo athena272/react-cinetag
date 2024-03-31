@@ -22,7 +22,7 @@ export default function Card({ id, title, cover }) {
             <img src={iconToUse}
                 alt="Favoritar filme"
                 className={styles.favorite}
-                onClick={() => addFavorite({ id, title, favorite })}
+                onClick={() => addFavorite({ id, title, cover })}
             />
         </div>
     )
