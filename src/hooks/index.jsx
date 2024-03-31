@@ -15,7 +15,7 @@ export function useFavoriteContext() {
         }
 
         newList.splice(newList.indexOf(newFavorite), 1);
-        newList = favorite.filter(fav => fav.id === newFavorite.id)
+        // newList = favorite.filter(fav => fav.id === newFavorite.id)
 
         return setFavorite(newList);
     }
