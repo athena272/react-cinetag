@@ -3,11 +3,16 @@ import Title from '../../components/Title/Title'
 import styles from './Player.module.scss'
 import videos from '../../db/db.json'
 import { useParams } from 'react-router-dom'
+import NotFound from '../NotFound/NotFound'
 
 export default function Player() {
     const parameters = useParams()
-    const video = videos.find(video => video.id === Number(parameters.id)) || videos[0]
-    console.log("🚀 ~ Player ~ video:", video)
+    const video = videos.find(video => video.id === Number(parameters.id))
+    // console.log("🚀 ~ Player ~ video:", video)
+
+    if (!video) {
+        return <NotFound />
+    }
 
     return (
         <>
@@ -22,7 +27,8 @@ export default function Player() {
                     src={video.link}
                     title={video.title}
                     frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
                 >
                 </iframe>
             </section>
