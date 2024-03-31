@@ -7,7 +7,7 @@ export default function Favorites() {
         <>
             <Banner image={"favoritos"} />
             <Title>
-                <h1>Um lugar para guardar seus vídeos e filmes!</h1>
+                <h1>Meus Favoritos</h1>
             </Title>
         </>
     )
