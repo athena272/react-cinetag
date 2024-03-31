@@ -1,11 +1,19 @@
 // import styles from 'Home.module.scss'
+import { useState } from 'react'
 import Banner from '../../components/Banner/Banner'
 import Card from '../../components/Card/Card'
 import Title from '../../components/Title/Title'
-import videos from '../../db/db.json'
 import styles from './Home.module.scss'
+import { useEffect } from 'react'
 
 export default function Home() {
+    const [videos, setVideos] = useState([])
+
+    useEffect(() => {
+        fetch('https://my-json-server.typicode.com/athena272/react-cinetag/videos')
+            .then(response => response.json())
+            .then(data => setVideos(data))
+    }, [])
 
     return (
         <>
