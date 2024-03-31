@@ -13,7 +13,7 @@ export default function Header() {
                 <NavBar url="./">
                     Home
                 </NavBar>
-                <NavBar url="./Favoritos">
+                <NavBar url="./favorites">
                     Favoritos
                 </NavBar>
             </nav>
