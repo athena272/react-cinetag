@@ -19,6 +19,7 @@ export default function Home() {
                     videos.map((video, index) => (
                         <Card
                             key={index}
+                            id={video.id}
                             cover={video.cover}
                             title={video.title}
                         />
