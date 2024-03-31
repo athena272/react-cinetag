@@ -6,16 +6,19 @@ import { useParams } from 'react-router-dom'
 import NotFound from '../NotFound/NotFound'
 
 export default function Player() {
-    const [videos, setVideos] = useState([])
+    const [video, setVideo] = useState(null)
+    const parameters = useParams()
 
     useEffect(() => {
-        fetch('https://my-json-server.typicode.com/athena272/react-cinetag/videos')
+        fetch(`https://my-json-server.typicode.com/athena272/react-cinetag/videos?id=${parameters.id}`)
             .then(response => response.json())
-            .then(data => setVideos(data))
+            .then(data => {
+                console.log("🚀 ~ useEffect ~ data:", data)
+                console.log("🚀 ~ useEffect ~ ...data:", ...data)
+                setVideo(...data)
+            })
     }, [])
 
-    const parameters = useParams()
-    const video = videos.find(video => video.id === Number(parameters.id))
     // console.log("🚀 ~ Player ~ video:", video)
 
     if (!video) {
