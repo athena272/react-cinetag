@@ -6,7 +6,7 @@ import Card from '../../components/Card/Card'
 
 export default function Favorites() {
     const { favorite } = useFavoriteContext()
-    console.log("🚀 ~ Favorites ~ favorite:", favorite)
+    
     return (
         <>
             <Banner image={"favoritos"} />
