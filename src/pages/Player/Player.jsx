@@ -1,11 +1,19 @@
 import Banner from '../../components/Banner/Banner'
 import Title from '../../components/Title/Title'
 import styles from './Player.module.scss'
-import videos from '../../db/db.json'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import NotFound from '../NotFound/NotFound'
 
 export default function Player() {
+    const [videos, setVideos] = useState([])
+
+    useEffect(() => {
+        fetch('https://my-json-server.typicode.com/athena272/react-cinetag/videos')
+            .then(response => response.json())
+            .then(data => setVideos(data))
+    }, [])
+
     const parameters = useParams()
     const video = videos.find(video => video.id === Number(parameters.id))
     // console.log("🚀 ~ Player ~ video:", video)
